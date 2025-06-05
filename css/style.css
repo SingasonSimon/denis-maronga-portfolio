@@ -1,0 +1,1357 @@
+/* css/style.css */
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Nunito', sans-serif; /* Default body font */
+    line-height: 1.7; /* Nunito often benefits from a slightly taller line-height */
+    color: #333;
+    background-color: #f9f9f9; /* Light grey background for the page */
+    font-weight: 400; /* Default weight for Nunito */
+}
+
+/* General Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation (#main-header) */
+#main-header {
+    background: #2c3e50; /* Dark blue/grey */
+    color: #ffffff;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#main-header #logo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif; /* Montserrat for the logo/brand name */
+    font-weight: 700;
+}
+
+#main-header #logo h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+/* Example if using an image logo:
+#main-header #logo img {
+    max-height: 50px;
+    display: block;
+}
+*/
+
+/* Main Navigation Desktop Styles */
+#main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#main-nav ul li {
+    margin-left: 25px;
+}
+
+#main-nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif; /* Montserrat for nav links */
+    font-weight: 500; /* Medium weight for nav links */
+    font-size: 1rem; /* Base font size for nav links */
+    padding: 5px 0;
+    transition: color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+#main-nav ul li a:hover,
+#main-nav ul li a.current {
+    color: #f1c40f; /* Vibrant yellow/gold for hover/active */
+}
+
+#main-nav ul li a:hover .nav-icon,
+#main-nav ul li a.current .nav-icon {
+    fill: #f1c40f; /* Ensure icon color changes too */
+}
+
+.nav-icon {
+    display: none; /* Icons hidden on desktop by default */
+    width: 22px;
+    height: 22px;
+    margin-right: 8px; /* Only relevant if icons were inline with text on desktop */
+    fill: currentColor; /* Inherits color from parent <a> tag */
+}
+
+.nav-text {
+    display: inline;
+}
+
+/* Mobile Menu Toggle Button Styling */
+#mobile-menu-toggle {
+    display: none; /* Hidden by default, shown via media query */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+#mobile-menu-toggle .hamburger-line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Transform hamburger to X when menu is active */
+#mobile-menu-toggle.active .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+#mobile-menu-toggle.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#mobile-menu-toggle.active .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Placeholder styles for sections - add more detail as we build them */
+main section {
+    padding: 60px 0; /* Basic padding for sections */
+}
+
+main section:nth-child(even) { /* Optional: alternating background for sections */
+    /* background-color: #ffffff; */ /* Example: white background for even sections */
+}
+
+/* Hero Section (#hero) */
+#hero {
+    background-color: #2c3e50; /* Dark blue/charcoal as a placeholder */
+    /*
+    background-image: url('../assets/images/denis-hero-background.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    */
+    color: #ffffff;
+    padding: 100px 0; /* Increased padding slightly */
+    text-align: center;
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Optional: Dark overlay for better text readability if using a background image */
+/*
+#hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Adjust opacity as needed
+    z-index: 1;
+}
+*/
+
+#hero .hero-content {
+    position: relative; /* To ensure content is above the overlay */
+    z-index: 2;
+    max-width: 800px; /* Constrain width of text content for readability */
+}
+
+#hero h1 {
+    font-family: 'Montserrat', sans-serif; /* Montserrat for the main headline */
+    font-size: 3rem; /* Adjusted size for Montserrat */
+    margin-bottom: 1rem; /* Adjusted margin */
+    font-weight: 700; /* Bold or 900 for very strong headline */
+    line-height: 1.2;
+}
+
+#hero .lead {
+    font-family: 'Nunito', sans-serif; /* Nunito for the lead paragraph */
+    font-size: 1.3rem; /* Adjusted size for Nunito */
+    margin-bottom: 2.5rem; /* Adjusted margin */
+    font-weight: 300; /* Light weight for lead text */
+    opacity: 0.95; /* Slightly more opaque */
+    max-width: 700px; /* Keep lead text from getting too wide */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#hero .btn {
+    font-family: 'Montserrat', sans-serif; /* Montserrat for buttons */
+    font-size: 1.1rem;
+    padding: 15px 35px; /* Slightly adjusted padding */
+    margin: 0 10px; /* Space if there are multiple buttons */
+}
+#page-header {
+    background-color: #2c3e50; /* Dark background, similar to main header */
+    color: #ffffff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+#page-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+#page-header .subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* About Page Specific Styles */
+#about-content .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.about-main-layout {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.about-profile-image {
+    flex: 1;
+    max-width: 400px; /* Adjust as needed */
+}
+
+.about-profile-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.about-narrative {
+    flex: 2;
+}
+
+.about-narrative .lead-paragraph {
+    font-size: 1.2em;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+#about-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem; /* Slightly smaller than homepage section titles */
+    color: #2c3e50; /* Dark blue for headings */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1c40f; /* Accent underline */
+    padding-bottom: 5px;
+    display: inline-block; /* So border only underlines text */
+}
+
+#about-content p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.about-additional-details {
+    margin-top: 30px;
+}
+
+.about-cta {
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 30px;
+}
+
+/* Responsive adjustments for About Page */
+@media (max-width: 992px) { /* Tablet and below */
+    .about-profile-image {
+        max-width: 300px;
+    }
+}
+
+
+@media (max-width: 768px) { /* Mobile */
+    #page-header h1 {
+        font-size: 2.2rem;
+    }
+    #page-header .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .about-main-layout {
+        flex-direction: column;
+        align-items: center; /* Center image when stacked */
+    }
+
+    .about-profile-image {
+        margin-bottom: 30px;
+        max-width: 350px; /* Allow image to be a bit wider on mobile when stacked */
+    }
+
+    .about-narrative {
+        text-align: left; /* Or center if preferred for mobile */
+    }
+
+    #about-content h2 {
+        font-size: 1.6rem;
+    }
+
+    #about-content p {
+        font-size: 1rem;
+    }
+}
+/* Services Page Specific Styles (#services-detailed) */
+#services-detailed .container {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.service-detail-item {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0; /* Separator line */
+}
+
+.service-detail-item:last-child {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.service-detail-icon {
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    margin-top: 5px; /* Align icon nicely with the heading */
+}
+
+.service-detail-icon svg {
+    width: 50px; /* Consistent icon size */
+    height: 50px;
+    color: #2c3e50; /* Or your primary accent color e.g., #f1c40f */
+}
+
+.service-detail-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.service-detail-content p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.service-detail-content ul {
+    list-style: disc; /* Or 'none' if you prefer custom styled list items */
+    margin-left: 25px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+.service-detail-content ul li {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.page-cta { /* Reusable CTA style for internal pages */
+    text-align: center;
+    padding: 40px 0;
+    background-color: #f9f9f9; /* Light background for CTA block */
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+.page-cta p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Responsive adjustments for Services Detailed Page */
+@media (max-width: 768px) {
+    .service-detail-item {
+        flex-direction: column; /* Stack icon and content */
+        align-items: center; /* Center items when stacked */
+        text-align: center;
+    }
+
+    .service-detail-icon {
+        margin-bottom: 15px;
+    }
+
+    .service-detail-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .service-detail-content ul {
+        text-align: left; /* Keep list items left-aligned for readability */
+        display: inline-block; /* Allows centering of the ul block */
+    }
+    .page-cta p {
+        font-size: 1.2rem;
+    }
+}
+/* Testimonials Page Specific Styles (#testimonials-list) */
+#testimonials-list .container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.testimonial-item {
+    background-color: #ffffff; /* White background for each card */
+    border-left: 5px solid #2c3e50; /* Dark blue accent border */
+    padding: 25px 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.testimonial-item:last-of-type { /* For the last testimonial before the CTA */
+    margin-bottom: 50px;
+}
+
+/* Reusing testimonial quote and author styles from homepage highlight,
+   but ensure they work on a light background if different. */
+.testimonial-item .testimonial-quote {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #444; /* Darker text for quote on light background */
+    position: relative;
+    padding-left: 45px; /* Space for quote mark */
+}
+
+.testimonial-item .testimonial-quote::before {
+    content: '\201C'; /* Unicode for left double quotation mark */
+    font-family: 'Georgia', serif;
+    font-size: 3.5rem; /* Slightly smaller than homepage highlight */
+    color: #2c3e50; /* Dark blue for quote mark */
+    position: absolute;
+    left: 0px;
+    top: -8px;
+    line-height: 1;
+}
+
+.testimonial-item .testimonial-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50; /* Dark blue for author */
+    text-align: right;
+}
+
+/* Responsive adjustments for Testimonials List */
+@media (max-width: 480px) {
+    .testimonial-item .testimonial-quote {
+        padding-left: 0;
+        text-align: center;
+    }
+    .testimonial-item .testimonial-quote::before {
+        display: none; /* Optionally hide quote mark on very small screens */
+    }
+    .testimonial-item .testimonial-author {
+        text-align: center;
+    }
+}
+
+/* Contact Page Specific Styles (#contact-details-form) */
+#contact-details-form .container {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.contact-layout {
+    display: flex;
+    gap: 50px;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 400px; /* Or adjust as preferred */
+}
+
+.contact-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.contact-info ul li {
+    display: flex;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.contact-info ul li .contact-icon {
+    width: 20px; /* Size of icons next to contact details */
+    height: 20px;
+    fill: #2c3e50; /* Icon color */
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.contact-info ul li a {
+    color: #2c3e50; /* Link color for email/phone */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info ul li a:hover {
+    color: #f1c40f; /* Primary accent on hover */
+}
+
+.contact-form-container {
+    flex: 2;
+}
+
+.contact-form-container h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus,
+.form-group input[type="date"]:focus,
+.form-group textarea:focus {
+    border-color: #2c3e50; /* Highlight border on focus */
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resize, not horizontal */
+    min-height: 120px;
+}
+
+.form-group button[type="submit"] {
+    /* Uses .btn and .btn-primary styles by default */
+    padding: 12px 30px;
+    font-size: 1.1rem;
+}
+
+#form-status { /* For success/error messages from JS */
+    margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+}
+#form-status.success {
+    color: green;
+}
+#form-status.error {
+    color: red;
+}
+
+
+/* Responsive adjustments for Contact Page */
+@media (max-width: 768px) {
+    .contact-layout {
+        flex-direction: column;
+    }
+    .contact-info {
+        max-width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    .contact-info ul li {
+        justify-content: center; /* Center list items */
+    }
+     .contact-info ul li .contact-icon {
+        margin-right: 10px; /* Ensure space on mobile */
+    }
+}
+
+
+/* Footer Section (#main-footer) */
+#main-footer {
+    background: #1e272e; /* Darker footer */
+    color: #ffffff;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 30px; /* Space above the footer */
+}
+#main-footer .social-links {
+    margin-top: 15px; /* Space above the social icons */
+}
+
+#main-footer .social-links a {
+    color: #ffffff; /* Icon color */
+    margin: 0 10px; /* Space between icons */
+    text-decoration: none;
+    display: inline-block; /* Allows for transform */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#main-footer .social-links a:hover {
+    color: #f1c40f; /* Primary accent color on hover */
+    transform: translateY(-3px); /* Slight lift effect on hover */
+}
+
+#main-footer .social-links svg {
+    width: 24px; /* Control icon size */
+    height: 24px;
+    vertical-align: middle; /* Aligns icons nicely if there were text next to them */
+}
+
+/* Media Query for Mobile Navigation & Layout Adjustments */
+@media (max-width: 768px) {
+    #main-nav { /* This is the <nav> element container */
+        display: none; /* Hidden until .active class is added by JS */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position it right below the header (assuming header height) */
+        left: 0;
+        background-color: #34495e; /* Slightly different background for dropdown */
+        padding-bottom: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    #main-nav.active { /* This class toggled by JS to show the mobile menu */
+        display: flex;
+    }
+
+    #main-nav ul {
+        flex-direction: column; /* Stack <li> items vertically */
+        width: 100%;
+    }
+
+    #main-nav ul li {
+        margin: 0; /* Reset desktop margin */
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    #main-nav ul li:first-child {
+        border-top: none;
+    }
+
+    #main-nav ul li a {
+        flex-direction: column; /* Stack icon and text vertically */
+        align-items: center;    /* Center them horizontally */
+        justify-content: center;
+        padding: 0.8rem 0.5rem; /* Adjust padding for better tap targets */
+    }
+
+    #main-nav ul li a .nav-icon {
+        display: block; /* Show icons on mobile */
+        margin-right: 0; /* Reset desktop margin */
+        margin-bottom: 5px; /* Space between icon and text */
+    }
+
+    #main-nav ul li a .nav-text {
+        display: block;
+        font-family: 'Montserrat', sans-serif; /* Or keep Nunito if preferred for mobile menu text */
+        font-size: 0.85rem; /* Slightly smaller text for mobile menu items */
+    }
+
+    #mobile-menu-toggle {
+        display: block; /* Show hamburger icon on mobile */
+    }
+
+    /* Adjust container padding or other elements for smaller screens if needed */
+    .container {
+        padding: 0 15px;
+    }
+
+    /* Responsive adjustments for Hero */
+    #hero {
+        padding: 80px 0;
+        min-height: 60vh;
+    }
+    #hero h1 {
+        font-size: 2.4rem; /* Adjusted for Montserrat */
+    }
+    #hero .lead {
+        font-size: 1.15rem; /* Adjusted for Nunito */
+    }
+     #hero .btn {
+        font-size: 1rem;
+        padding: 12px 25px;
+        display: block; /* Stack buttons on mobile */
+        margin: 10px auto; /* Center stacked buttons */
+        width: fit-content; /* Make button width fit content */
+    }
+    #hero .btn:first-of-type {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #hero h1 {
+        font-size: 2rem; /* Adjusted for Montserrat */
+    }
+    #hero .lead {
+        font-size: 1.05rem; /* Adjusted for Nunito */
+    }
+}
+#clients {
+    padding: 60px 0;
+    background-color: #ffffff; /* White background for this section */
+    text-align: center;
+}
+
+#clients h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.client-logo-swiper {
+    width: 100%;
+    padding-top: 10px; /* Space if pagination is on top */
+    padding-bottom: 40px; /* Space for pagination at the bottom */
+}
+
+.client-logo-swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Or adjust to fit your logos' aspect ratio */
+    /* background: #f0f0f0; */ /* Optional: light background for each slide */
+}
+
+.client-logo-swiper .swiper-slide img {
+    max-width: 150px; /* Adjust as needed */
+    max-height: 80px;  /* Adjust as needed */
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0.9; /* Optional: slightly transparent logos */
+    transition: opacity 0.3s ease;
+}
+
+.client-logo-swiper .swiper-slide:hover img {
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Swiper Pagination Styles (if you enable it) */
+.client-logo-swiper .swiper-pagination-bullet {
+    background-color: #2c3e50; /* Dark bullets */
+    opacity: 0.5;
+}
+
+.client-logo-swiper .swiper-pagination-bullet-active {
+    background-color: #f1c40f; /* Active bullet color (matches button color) */
+    opacity: 1;
+}
+
+/* Swiper Navigation Button Styles (if you enable them) */
+
+.client-logo-swiper .swiper-button-prev,
+.client-logo-swiper .swiper-button-next {
+    color: #2c3e50;
+    transform: scale(0.8); 
+}
+.client-logo-swiper .swiper-button-prev:after,
+.client-logo-swiper .swiper-button-next:after {
+    font-size: 24px !important;
+}
+
+
+@media (max-width: 768px) {
+    #clients h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .client-logo-swiper .swiper-slide img {
+        max-width: 120px;
+        max-height: 60px;
+    }
+}
+
+/* About Snippet Section (#about-snippet) */
+#about-snippet {
+    background-color: #f9f9f9; /* Or #ffffff if you prefer alternating white/light grey */
+    padding: 60px 0;
+}
+
+#about-snippet .about-snippet-content {
+    display: flex;
+    align-items: center; /* Vertically align items if they have different heights */
+    gap: 40px; /* Space between image and text */
+}
+
+#about-snippet .about-image {
+    flex: 1; /* Takes up 1 part of the available space */
+    max-width: 350px; /* Max width for the image container */
+}
+
+#about-snippet .about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Slightly rounded corners for the image */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#about-snippet .about-text {
+    flex: 2; /* Takes up 2 parts of the available space, making text area wider */
+}
+
+#about-snippet .about-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#about-snippet .about-text p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#about-snippet .about-text .btn {
+    margin-top: 15px;
+}
+
+/* Responsive adjustments for About Snippet */
+@media (max-width: 768px) {
+    #about-snippet .about-snippet-content {
+        flex-direction: column; /* Stack image and text on smaller screens */
+        text-align: center;
+    }
+
+    #about-snippet .about-image {
+        max-width: 300px; /* Adjust image size for mobile */
+        margin-bottom: 30px;
+    }
+
+    #about-snippet .about-text h2 {
+        font-size: 2rem;
+    }
+
+    #about-snippet .about-text p {
+        font-size: 1rem;
+    }
+}
+
+/* Services Overview Section (#services-overview) */
+#services-overview {
+    background-color: #ffffff; /* Or #f9f9f9 for alternating */
+    padding: 60px 0;
+}
+
+#services-overview .section-title {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    color: #333;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.service-item {
+    background-color: #f9f9f9; /* Light background for each item */
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    margin-bottom: 20px;
+}
+
+.service-icon svg {
+    width: 50px; /* Control icon size */
+    height: 50px;
+    color: #2c3e50; /* Icon color - same as header, or your primary color */
+    /* If using fill="currentColor" in SVG:
+    color: #f1c40f; /* Example: primary accent color for icons */
+}
+
+.service-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.service-item p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+.services-cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Responsive adjustments for Services Overview */
+@media (max-width: 768px) {
+    #services-overview .section-title {
+        font-size: 2rem;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Stack items on smaller screens */
+    }
+}
+
+/* Media & Gallery Page Specific Styles */
+#gallery-content .container {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+
+.gallery-intro {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-gallery-grid {
+    display: grid;
+    /* Adjust minmax for desired thumbnail size and responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Increased gap slightly */
+    margin-bottom: 50px;
+}
+
+.gallery-item {
+    overflow: hidden; /* Ensures image hover effect doesn't break layout */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* For potential overlay effects */
+    aspect-ratio: 4 / 3; /* Maintain a consistent aspect ratio for items */
+}
+
+.gallery-item a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover ensures image fills the item, might crop */
+    /* object-fit: contain; /* Contain ensures whole image is visible, might leave space */
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    border-radius: 8px; /* Match parent's border radius */
+}
+
+.gallery-item a:hover img {
+    transform: scale(1.05); /* Slight zoom on hover */
+    opacity: 0.85; /* Slight dim on hover to indicate interactivity */
+}
+
+/* Optional: Overlay on hover (example) */
+/*
+.gallery-item a::after {
+    content: '\1F50E'; // Magnifying glass emoji or SVG icon
+    font-size: 2rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.gallery-item a:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+*/
+
+
+/* Video Gallery Styles (if you uncomment the HTML) */
+.video-gallery {
+    margin-top: 60px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.video-gallery .section-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.video-item {
+    margin-bottom: 30px;
+    display: inline-block; /* Or use a grid/flex for layout */
+    max-width: 560px; /* Standard video width */
+    width: 100%;
+}
+
+.video-item iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video-item p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+
+/* Responsive adjustments for Gallery */
+@media (max-width: 600px) {
+    .image-gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+}
+
+/* Testimonial Highlight Section (#testimonial-highlight) */
+#testimonial-highlight {
+    background-color: #2c3e50; /* Using the dark header color for contrast */
+    color: #ffffff;
+    padding: 80px 0; /* More padding for emphasis */
+    text-align: center;
+}
+
+#testimonial-highlight .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    color: #ffffff; /* White title on dark background */
+    margin-bottom: 40px;
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle light card on dark bg */
+    border-left: 5px solid #f1c40f; /* Accent border with primary color */
+    padding: 30px 40px;
+    border-radius: 8px;
+    max-width: 750px; /* Control width of the testimonial card */
+    margin: 0 auto 30px auto; /* Center the card and add space below */
+    text-align: left; /* Align text to the left within the card */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-quote {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.25rem; /* Larger font for the quote */
+    font-style: italic;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #f0f0f0; /* Light grey text for quote */
+    position: relative;
+    padding-left: 50px; /* Space for quote mark */
+}
+
+.testimonial-quote::before {
+    content: '\201C'; /* Unicode for left double quotation mark */
+    font-family: 'Georgia', serif; /* A more traditional serif for quote marks */
+    font-size: 4rem; /* Large quote mark */
+    color: #f1c40f; /* Primary color for quote mark */
+    position: absolute;
+    left: 0px;
+    top: -10px;
+    line-height: 1;
+}
+
+.testimonial-author {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #f1c40f; /* Primary color for author */
+    text-align: right;
+}
+
+.testimonial-cta {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Responsive adjustments for Testimonial Highlight */
+@media (max-width: 768px) {
+    #testimonial-highlight .section-title {
+        font-size: 2rem;
+    }
+    .testimonial-card {
+        padding: 25px 30px;
+    }
+    .testimonial-quote {
+        font-size: 1.1rem;
+        padding-left: 40px;
+    }
+    .testimonial-quote::before {
+        font-size: 3rem;
+        left: -5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-quote {
+        padding-left: 0; /* Remove padding if quote mark is too intrusive */
+        text-align: center;
+    }
+    .testimonial-quote::before {
+        display: none; /* Optionally hide quote mark on very small screens */
+    }
+    .testimonial-author {
+        text-align: center;
+    }
+}
+/* Main Call to Action Section (#cta-main) */
+#cta-main {
+    background-color: #f9f9f9; /* Using the primary yellow/gold color for high visibility */
+    color: #333; /* Dark text on the light background */
+    padding: 60px 0;
+    text-align: center;
+}
+
+#cta-main .container {
+    max-width: 800px; /* Constrain width for better readability */
+}
+
+#cta-main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+#cta-main p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+#cta-main .btn-lg { /* Style for a larger button */
+    font-size: 1.25rem;
+    padding: 18px 40px;
+    font-weight: 700;
+    background-color: #dab10d; /* Dark button on yellow background for contrast */
+    color: #1e272e;
+}
+
+#cta-main .btn-lg:hover {
+    background-color: #f1c40f; /* Slightly lighter dark on hover */
+    color: #2c3e50;
+    border-color: #34495e;
+}
+
+
+/* Responsive adjustments for Main CTA */
+@media (max-width: 768px) {
+    #cta-main h2 {
+        font-size: 2rem;
+    }
+    #cta-main p {
+        font-size: 1.05rem;
+    }
+    #cta-main .btn-lg {
+        font-size: 1.1rem;
+        padding: 15px 30px;
+    }
+}
+
+
+/* UTILITY CLASSES */
+.text-primary {
+    color: #f1c40f; /* Example using the hover color as primary */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    background: #f1c40f; /* Primary button color */
+    color: #333; /* Dark text on light button */
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Consistent button font weight */
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #dab10d; /* Darken button on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+.btn-primary {
+    /* This class is mainly for semantic distinction if needed,
+       styles are currently covered by .btn. You can add specific overrides here. */
+}
+
+.btn-secondary {
+    background: #3498db; /* Blue */
+    color: #fff;
+}
+.btn-secondary:hover {
+    background: #2980b9;
+}
+/* --- Event Announcement Box --- */
+.event-announcement {
+    background: rgba(241, 196, 15, 0.1); /* Transparent version of the accent color */
+    border: 1px solid #f1c40f;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 40px; /* Space above the box */
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #ffffff;
+}
+
+.event-announcement h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    color: #f1c40f; /* Accent color for the heading */
+    margin-bottom: 10px;
+}
+
+.event-announcement p {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.95;
+}
+
+.event-announcement p strong {
+    font-weight: 700;
+}
+/* --- Project Spotlight Section on About Page --- */
+.project-spotlight {
+    margin-top: 40px; /* Adds space above the new section */
+    padding-top: 30px; /* Adds space within the section, below the border */
+    border-top: 1px solid #e0e0e0; /* A subtle line to separate the sections */
+}
+
+.project-spotlight h2 {
+    font-size: 1.8rem !important; /* Ensures heading size is consistent */
+    border-bottom: none !important; /* Removes the underline from this specific heading */
+    margin-bottom: 15px !important;
+}
+
+.project-spotlight .btn {
+    margin-top: 15px; /* Adds space above the button */
+}
